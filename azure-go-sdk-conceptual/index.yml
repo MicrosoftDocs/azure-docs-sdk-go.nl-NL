@@ -1,0 +1,84 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure voor Go-ontwikkelaars
+metadata:
+  title: Azure voor Go-ontwikkelaars - Zelfstudies, API-naslaginformatie
+  description: Begin met ontwikkelen met de Azure SDK voor Go met behulp van de onderstaande bronnen voor ontwikkelaars.
+  keywords: Azure, Go, golang, SDK, API
+  author: sptramer
+  ms.author: sttramer
+  manager: routlaw
+  ms.date: 01/30/2018
+  ms.topic: article
+  featureFlags:
+  - clicktale
+  ms.prod: azure
+  ms.technology: azure
+  ms.devlang: golang
+  ms.service: multiple
+  ms.openlocfilehash: cd733628931b0b902438734340b1145ad9c179d6
+  ms.sourcegitcommit: aaa8c37880332625f858a38f5918e6cf581bf48d
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 02/15/2018
+sections:
+- items:
+  - type: markdown
+    text: "Ontwikkel apps met de Azure SDK voor Go met behulp van onze officiële zelfstudies en hulpprogramma's.\n"
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - title: Aan de slag
+      html: <p>De Azure SDK voor Go installeren</p>
+      href: https://docs.microsoft.com/go/azure/azure-sdk-go-install
+      image:
+        src: https://docs.microsoft.com/media/common/i_get-started.svg
+    - title: Codevoorbeelden
+      html: <p>Azure-codevoorbeelden waarin Go wordt gebruikt</p>
+      image:
+        src: https://docs.microsoft.com//media/common/i_code-samples.svg
+      href: https://github.com/azure-samples/azure-sdk-for-go-samples
+    - title: SDK &amp; hulpprogramma's
+      html: <p>Hulpprogramma's voor ontwikkelaars</p>
+      href: https://docs.microsoft.com/go/azure/azure-sdk-go-tools
+      image:
+        src: https://docs.microsoft.com/media/common/i_download-install.svg
+    - title: API-naslaginformatie
+      html: <p>GoDoc voor Azure SDK voor Go</p>
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go
+      image:
+        src: https://docs.microsoft.com/media/common/i_api-reference.svg
+- title: Snelstartgidsen voor Go SDK
+  items:
+  - type: paragraph
+    text: Leer hoe u de Azure SDK voor Go kunt gebruiken.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - title: Een virtuele machine implementeren vanuit een Azure-resourcesjabloon met Go
+      href: https://docs.microsoft.com/go/azure/azure-sdk-go-qs-vm
+      image:
+        src: https://docs.microsoft.com/azure/virtual-machines/media/index/virtualmachine.svg
+    - title: Objecten overdragen naar Azure Blob Storage met de Azure Storage SDK voor Go
+      href: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-go?toc=%2fgo%2fazure%2ftoc.json
+      image:
+        src: https://docs.microsoft.com/azure/media/index/logo_azure-blob-storage.svg
+    - title: Verbinding maken met Azure Database for PostgreSQL met Go
+      href: https://docs.microsoft.com/azure/postgresql/connect-go?toc=%2fgo%2fazure%2ftoc.json
+      image:
+        src: https://docs.microsoft.com//azure/media/index/PostgreSQL.svg
+  - title: Voorbeelden
+    items:
+    - type: list
+      style: unordered
+      items:
+      - html: "<a href=\"https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/iam\">Verifiëren met Azure-services</a>"
+      - html: <a href="https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/compute">Nieuwe virtuele machines maken</a>
+      - html: <a href="https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/containerinstance">Een container implementeren in Azure Container Instances</a>
+      - html: <a href="https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/containerservice">Een cluster in Azure Kubernetes Service maken</a>
+      - html: <a href="https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage">Werken met Azure Storage-services</a>

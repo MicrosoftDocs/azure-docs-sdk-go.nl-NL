@@ -8,11 +8,11 @@ ms.date: 02/08/2018
 ms.topic: quickstart
 ms.devlang: go
 manager: routlaw
-ms.openlocfilehash: e530d944deca40e9e6c29b6c2768e2367822714e
-ms.sourcegitcommit: aaa8c37880332625f858a38f5918e6cf581bf48d
+ms.openlocfilehash: ae460dbf21b13c40f3d564274f8b790afe005aae
+ms.sourcegitcommit: af3473779cd7c2978f290fbdc51ee15eb1130840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="quickstart-deploy-an-azure-virtual-machine-from-a-template-with-the-azure-sdk-for-go"></a>Snelstartgids: een virtuele Azure-machine implementeren vanuit een sjabloon met de Azure SDK voor Go
 
@@ -32,7 +32,7 @@ Als u een lokale installatie van Azure CLI gebruikt, vereist deze snelstartgids 
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken
 
-Als u zich niet-interactief aan wilt melden bij een toepassing, hebt u een service-principal nodig. Service-principals zijn onderdeel van op rollen gebaseerde verificatie (RBAC), waarmee een unieke gebruikersidentiteit wordt gemaakt. Als u een nieuwe service-principal wilt maken met de CLI, voert u de volgende opdracht uit:
+Als u zich niet-interactief aan wilt melden bij een toepassing, hebt u een service-principal nodig. Service-principals zijn onderdeel van op rollen gebaseerd toegangsbeheer (RBAC), waarmee een unieke gebruikersidentiteit wordt gemaakt. Als u een nieuwe service-principal wilt maken met de CLI, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name az-go-vm-quickstart
@@ -79,7 +79,7 @@ U moet ook een waarde in het bestand `vm-quickstart-params.json` aanpassen.
     }
 ```
 
-* `vm_password`: het wachtwoord van het gebruikersaccount van de VM. Het moet uit 6-72 tekens bestaan en het moet 3 van de volgende tekens bevatten:
+* `vm_password`: het wachtwoord van het gebruikersaccount van de VM. Het moet uit 12-72 tekens bestaan en het moet 3 van de volgende tekens bevatten:
   * Een kleine letter
   * Een hoofdletter
   * Een getal

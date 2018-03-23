@@ -1,18 +1,17 @@
 ---
 title: Een virtuele Azure-machine vanuit Go implementeren
 description: Een virtuele machine implementeren met de Azure SDK voor Go.
-keywords: azure, virtuele machine, vm, go, golang, azure sdk
 author: sptramer
 ms.author: sttramer
 ms.date: 02/08/2018
 ms.topic: quickstart
 ms.devlang: go
-manager: routlaw
-ms.openlocfilehash: ae460dbf21b13c40f3d564274f8b790afe005aae
-ms.sourcegitcommit: af3473779cd7c2978f290fbdc51ee15eb1130840
+manager: carmonm
+ms.openlocfilehash: 46a1243ff2ff6bfcf3831e2cea3137c1f6051c78
+ms.sourcegitcommit: fcc1786d59d2e32c97a9a8e0748e06f564a961bd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-deploy-an-azure-virtual-machine-from-a-template-with-the-azure-sdk-for-go"></a>Snelstartgids: een virtuele Azure-machine implementeren vanuit een sjabloon met de Azure SDK voor Go
 

@@ -1,5 +1,5 @@
 items:
-  - name: Azure SDK voor Go
+  - name: Azure-SDK voor Go
     href: index.yml
   - name: Overzicht
     items:
@@ -7,7 +7,7 @@ items:
         href: azure-sdk-go-install.md
       - name: Hulpprogramma's
         href: azure-sdk-go-tools.md
-  - name: Snelstartgidsen voor Go SDK
+  - name: Snelstartgidsen voor Go-SDK
     items:
       - name: Virtuele machines en resource-sjablonen
         href: azure-sdk-go-qs-vm.md
@@ -19,7 +19,18 @@ items:
         href: /azure/mysql/connect-go?toc=%2fgo%2fazure%2ftoc.json
       - name: Azure SQL Database
         href: /azure/sql-database/sql-database-connect-query-go?toc=%2fgo%2fazure%2ftoc.json
-  - name: Voorbeelden
-    href: 'http://github.com/azure-samples/azure-sdk-for-go-samples'
+  - name: Go-codevoorbeelden
+    items:
+      - name: Verificatie en Active Directory
+        href: azure-sdk-go-auth-aad-samples.md
+      - name: Containers
+        href: azure-sdk-go-containers-samples.md
+      - name: Reken- en netwerktaken
+        href: azure-sdk-go-compute-networking-samples.md
+      - name: Azure SQL Database
+        href: azure-sdk-go-sql-database-samples.md
+      - name: Alle Go-voorbeelden
+        href: 'http://github.com/azure-samples/azure-sdk-for-go-samples'
+    href: null
   - name: API-verwijzing
     href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go'

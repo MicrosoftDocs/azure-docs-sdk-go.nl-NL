@@ -1,5 +1,5 @@
 items:
-  - name: Azure-SDK voor Go
+  - name: Azure SDK voor Go
     href: index.yml
   - name: Overzicht
     items:
@@ -7,7 +7,9 @@ items:
         href: azure-sdk-go-install.md
       - name: Hulpprogramma's
         href: azure-sdk-go-tools.md
-  - name: Snelstartgidsen voor Go-SDK
+      - name: Verificatie
+        href: azure-sdk-go-authorization.md
+  - name: Snelstartgidsen voor Go SDK
     items:
       - name: Virtuele machines en resource-sjablonen
         href: azure-sdk-go-qs-vm.md

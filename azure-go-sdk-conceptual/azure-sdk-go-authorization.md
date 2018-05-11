@@ -4,16 +4,19 @@ description: Lees meer over de verificatiemethoden die beschikbaar zijn in de Az
 services: azure
 author: sptramer
 ms.author: sttramer
-ms.date: 04/03/2018
-ms.topic: article
-ms.service: azure
-ms.devlang: go
 manager: carmonm
-ms.openlocfilehash: 39f9dc5a7cdf9ab84cfd9264446bacb31392ca80
-ms.sourcegitcommit: 59d2b4c9d8da15fbbd15e36551093219fdaf256e
+ms.date: 04/03/2018
+ms.topic: conceptual
+ms.prod: azure
+ms.technology: azure-sdk-go
+ms.devlang: go
+ms.service: active-directory
+ms.component: authentication
+ms.openlocfilehash: 370f5607b89c0044022f7987d06c3a55c9d6f352
+ms.sourcegitcommit: f08abf902b48f8173aa6e261084ff2cfc9043305
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="authentication-methods-in-the-azure-sdk-for-go"></a>Verificatiemethoden in de Azure SDK voor Go
 
@@ -84,6 +87,27 @@ Wanneer u gebruikmaakt van verificatie op basis van de omgeving, roept u de func
 import "github.com/Azure/go-autorest/autorest/azure/auth"
 authorizer, err := auth.NewAuthorizerFromEnvironment()
 ```
+
+### <a name="authentication-on-azure-stack"></a>Verificatie in Azure Stack
+
+Als u verificatie wilt uitvoeren in Azure Stack, moet u de volgende variabelen instellen:
+
+| Omgevingsvariabele | Beschrijving  |
+|----------------------|--------------|
+| `AZURE_AD_ENDPOINT` | Het Azure Active Directory-eindpunt. |
+| `AZURE_AD_RESOURCE` | De resource-id voor Active Directory. |
+
+Deze variabelen kunnen worden opgehaald uit de Azure Stack-metagegevens. Als u de metagegevens wilt ophalen, opent u een webbrowser in uw Azure Stack-omgeving en volgt u deze URL: `(ResourceManagerURL)/metadata/endpoints?api-version=1.0`
+
+De `ResourceManagerURL` varieert op basis van de regionaam, de computernaam en de externe volledig gekwalificeerde domeinnaam (FQDN) van uw Azure Stack-implementatie:
+
+| Omgeving | ResourceManagerURL |
+|----------------------|--------------|
+| Development Kit | `https://management.local.azurestack.external/` |
+| Geïntegreerde systemen | `https://management.(region).ext-(machine-name).(FQDN)` |
+
+Voor meer informatie over het gebruik van de Azure-SDK voor Go in Azure Stack raadpleegt u [Use API version profiles with Go in Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-version-profiles-go) (API-versieprofielen met Go gebruiken in Azure Stack).
+
 
 ## <a name="use-file-based-authentication"></a>Verificatie op basis van een bestand gebruiken
 

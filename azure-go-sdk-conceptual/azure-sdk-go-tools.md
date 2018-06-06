@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-sdk-go
 ms.devlang: go
-ms.openlocfilehash: 2ea44fb8a4fdd6098bb44d3b5092cfbc352b424d
-ms.sourcegitcommit: f08abf902b48f8173aa6e261084ff2cfc9043305
+ms.openlocfilehash: 1e122ab161766023ea146329a5edb13143699b8b
+ms.sourcegitcommit: b81b17cbb934399c195bfdcb87137aee935f5234
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34755529"
 ---
 # <a name="tools-for-developers-using-the-azure-sdk-for-go"></a>Hulpprogramma's voor ontwikkelaars die gebruikmaken van de Azure SDK voor Go
 
@@ -40,10 +41,3 @@ Met Go zijn er vele manieren om uw pakketafhankelijkheden te beheren en in de ma
 
 > [!div class="nextstepaction"]
 > [De afhankelijkheidsbeheerder dep downloaden](https://github.com/tools/godep)
-
-## <a name="telemetry-with-application-insights"></a>Telemetrie met Azure Insights
-
-[Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) is een analyseproduct waarmee u eenvoudig telemetriegegevens van uw toepassingen kunt verzamelen en integreren met het Azure-ecosysteem, Visual Studio Team Services en GitHub. Het kan in veel toepassingen worden gebruikt en Microsoft biedt een Go SDK om met Application Insights te werken.
-
-> [!div class="nextstepaction"]
-> [De Go SDK voor Application Insights ophalen](https://github.com/Microsoft/ApplicationInsights-Go) 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f08abf902b48f8173aa6e261084ff2cfc9043305
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32319880"
 ---
 # <a name="authentication-methods-in-the-azure-sdk-for-go"></a>Verificatiemethoden in de Azure SDK voor Go
 

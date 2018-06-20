@@ -21,10 +21,12 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 03/01/2018
+  ms.locfileid: "29716007"
 sections:
 - items:
   - type: markdown
-    text: "Ontwikkel apps met de [Azure SDK voor Go](https://github.com/Azure/azure-sdk-for-go) met behulp van onze officiële zelfstudies en hulpprogramma's.\n"
+    text: >
+      Ontwikkel apps met de [Azure SDK voor Go](https://github.com/Azure/azure-sdk-for-go) met behulp van onze officiële zelfstudies en hulpprogramma's.
 - items:
   - type: list
     style: cards
@@ -77,7 +79,7 @@ sections:
     - type: list
       style: unordered
       items:
-      - html: "<a href=\"https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/iam\">Verifiëren met Azure-services</a>"
+      - html: <a href="https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/iam">Verifiëren met Azure-services</a>
       - html: <a href="https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/compute">Nieuwe virtuele machines maken</a>
       - html: <a href="https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/containerinstance">Een container implementeren in Azure Container Instances</a>
       - html: <a href="https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/containerservice">Een cluster in Azure Kubernetes Service maken</a>

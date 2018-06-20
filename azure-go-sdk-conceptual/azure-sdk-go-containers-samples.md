@@ -15,6 +15,7 @@ ms.sourcegitcommit: f08abf902b48f8173aa6e261084ff2cfc9043305
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32319863"
 ---
 # <a name="azure-sdk-for-go-samples-for-containers"></a><span data-ttu-id="2f521-103">Azure-SDK voor Go-voorbeelden voor containers</span><span class="sxs-lookup"><span data-stu-id="2f521-103">Azure SDK for Go samples for containers</span></span>
 

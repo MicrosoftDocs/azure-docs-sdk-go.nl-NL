@@ -12,12 +12,12 @@ ms.technology: azure-sdk-go
 ms.devlang: go
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: 370f5607b89c0044022f7987d06c3a55c9d6f352
-ms.sourcegitcommit: f08abf902b48f8173aa6e261084ff2cfc9043305
+ms.openlocfilehash: c7970167070bdf1f3fc75692f3e34268801c65df
+ms.sourcegitcommit: 181d4e0b164cf39b3feac346f559596bd19c94db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32319880"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38066996"
 ---
 # <a name="authentication-methods-in-the-azure-sdk-for-go"></a>Verificatiemethoden in de Azure SDK voor Go
 
@@ -45,7 +45,7 @@ De Azure SDK voor Go biedt verschillende typen verificatie met verschillende ref
 [Een service-principal maken met Azure CLI 2.0]: /cli/azure/create-an-azure-service-principal-azure-cli
 [Managed Service Identity (MSI) voor Azure-resources]: /azure/active-directory/managed-service-identity/overview
 
-Deze verificatietypen zijn beschikbaar via verschillende methoden. Met [_verificatie op basis van de omgeving_](#use-environment-based-authentication) worden referenties rechtstreeks uit de omgeving van het programma gelezen. Met [_verificatie op basis van het bestand_](#use-file-based-authentication) wordt er een bestand geladen met de referenties van de service-principal. Met [_verificatie op basis van de client_](#use-an-authentication-client) wordt er gebruikgemaakt van een object in Go-code en bent u verantwoordelijk voor de levering van de referenties wanneer het programma wordt uitgevoerd. Met [_apparaattokenverificatie_](#use-device-token-authentication) tot slot moeten gebruikers zich interactief met een token aanmelden via een webbrowser. Deze methode kan niet worden gebruikt met omgevings- of bestandsgebaseerde verificatie.
+Deze verificatietypen zijn beschikbaar via verschillende methoden. Met [_verificatie op basis van de omgeving_](#use-environment-based-authentication) worden referenties rechtstreeks uit de omgeving van het programma gelezen. Met [_verificatie op basis van het bestand_](#use-file-based-authentication) wordt er een bestand geladen met de referenties van de service-principal. Met [_verificatie op basis van de client_](#use-an-authentication-client) wordt er gebruikgemaakt van een object in Go-code en bent u verantwoordelijk voor de levering van de referenties wanneer het programma wordt uitgevoerd. Met [_apparaattokenverificatie_](#use-device-token-authentication) moeten gebruikers zich interactief met een token aanmelden via een webbrowser. Deze methode kan niet worden gebruikt met omgevings- of bestandsgebaseerde verificatie.
 
 Alle verificatiefuncties en -typen zijn beschikbaar in het `github.com/Azure/go-autorest/autorest/azure/auth`-pakket.
 
@@ -107,7 +107,7 @@ De `ResourceManagerURL` varieert op basis van de regionaam, de computernaam en d
 | Development Kit | `https://management.local.azurestack.external/` |
 | Geïntegreerde systemen | `https://management.(region).ext-(machine-name).(FQDN)` |
 
-Voor meer informatie over het gebruik van de Azure-SDK voor Go in Azure Stack raadpleegt u [Use API version profiles with Go in Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-version-profiles-go) (API-versieprofielen met Go gebruiken in Azure Stack).
+Voor meer informatie over het gebruik van de Azure-SDK voor Go in Azure Stack raadpleegt u [Use API version profiles with Go in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-go) (API-versieprofielen met Go gebruiken in Azure Stack).
 
 
 ## <a name="use-file-based-authentication"></a>Verificatie op basis van een bestand gebruiken
@@ -131,7 +131,7 @@ Zie [Een service-principal maken met Azure CLI 2.0] voor meer informatie over he
 
 ## <a name="use-device-token-authentication"></a>Apparaattokenverificatie gebruiken
 
-Als u wilt dat gebruikers zich interactief aanmelden, is apparaattokenverificatie de beste manier om dit mogelijk te maken. Deze verificatiestroom geeft gebruikers een token die in een aanmeldsite van Microsoft kan worden geplakt, waar ze zich vervolgens aanmelden met een AAD-account (Azure Active Directory). Deze verificatiemethode biedt ondersteuning voor accounts waarvoor Multi-Factor Authentication is ingeschakeld, in tegenstelling tot de standaardverificatie met gebruik van gebruikersnaam en wachtwoord.
+Als u wilt dat gebruikers zich interactief aanmelden, is apparaattokenverificatie de beste manier om dit mogelijk te maken. Deze verificatiestroom geeft gebruikers een token die in een aanmeldsite van Microsoft kan worden geplakt, waar ze zich vervolgens verifiëren met een AAD-account (Azure Active Directory). Deze verificatiemethode biedt ondersteuning voor accounts waarvoor Multi-Factor Authentication is ingeschakeld, in tegenstelling tot de standaardverificatie met gebruik van gebruikersnaam en wachtwoord.
 
 Als u apparaattokenverificatie wilt gebruiken, maakt u een [DeviceFlowConfig](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#DeviceFlowConfig)-authorizer met de functie [NewDeviceFlowConfig](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#NewDeviceFlowConfig). Roep [Authorizer](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#DeviceFlowConfig.Authorizer) aan op het resulterende object om het verificatieproces te starten. Bij apparaatstroomverificatie wordt het programma niet uitgevoerd totdat de gehele verificatiestroom is voltooid.
 

@@ -10,16 +10,16 @@ ms.prod: azure
 ms.technology: azure-sdk-go
 ms.service: virtual-machines
 ms.devlang: go
-ms.openlocfilehash: 1fbcc54df2a2aebce56c5a5800361f3d3aed1ccc
-ms.sourcegitcommit: f08abf902b48f8173aa6e261084ff2cfc9043305
+ms.openlocfilehash: 7592e8617436a76dd27cac5269971051982425bf
+ms.sourcegitcommit: 181d4e0b164cf39b3feac346f559596bd19c94db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32319931"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38067013"
 ---
 # <a name="quickstart-deploy-an-azure-virtual-machine-from-a-template-with-the-azure-sdk-for-go"></a>Snelstartgids: een virtuele Azure-machine implementeren vanuit een sjabloon met de Azure SDK voor Go
 
-Deze snelstartgids is gericht op de implementatie van resources vanuit een sjabloon met de Azure SDK voor Go. Sjablonen zijn momentopnames van alle resources die in een [Azure-resourcegroep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) zijn opgenomen. Gaandeweg raakt u bekend met de functionaliteiten en conventies van de SDK en ondertussen voert u een handige taak uit.
+Deze snelstartgids is gericht op de implementatie van resources vanuit een sjabloon met de Azure SDK voor Go. Sjablonen zijn momentopnames van alle resources die in een [Azure-resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) zijn opgenomen. Gaandeweg raakt u bekend met de functionaliteiten en conventies van de SDK en ondertussen voert u een handige taak uit.
 
 Aan het einde van deze snelstartgids voert u een VM uit waarbij u zich aanmeldt met een gebruikersnaam en een wachtwoord.
 
@@ -35,8 +35,7 @@ Als u een lokale installatie van Azure CLI gebruikt, vereist deze snelstart CLI-
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken
 
-
-Als u zich niet-interactief aan wilt melden bij een toepassing, hebt u een service-principal nodig. Service-principals zijn onderdeel van op rollen gebaseerd toegangsbeheer (RBAC), waarmee een unieke gebruikersidentiteit wordt gemaakt. Als u een nieuwe service-principal wilt maken met de CLI, voert u de volgende opdracht uit:
+Als u zich niet-interactief met een toepassing wilt aanmelden bij Azure, hebt u een service-principal nodig. Service-principals zijn onderdeel van op rollen gebaseerd toegangsbeheer (RBAC), waarmee een unieke gebruikersidentiteit wordt gemaakt. Als u een nieuwe service-principal wilt maken met de CLI, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name az-go-vm-quickstart --sdk-auth > quickstart.auth

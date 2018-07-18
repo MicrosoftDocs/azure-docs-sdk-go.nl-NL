@@ -6,11 +6,12 @@ ms.date: 02/12/2018
 ms.topic: include
 ms.prod: azure
 ms.technology: azure-cli
-ms.openlocfilehash: 78d48eff1dd268b249633d4de7d1a15ac1e69750
-ms.sourcegitcommit: f08abf902b48f8173aa6e261084ff2cfc9043305
+ms.openlocfilehash: fcbdadcd1d038f93ee609d5067dc2f7451e4badc
+ms.sourcegitcommit: 2a3bd491e087a1d0e7d269bed896c029357d62a6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988058"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
@@ -20,6 +21,5 @@ Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit a
 |-----------------------------------------------|---|
 | Klik op **Nu uitproberen** in de rechterbovenhoek van een codeblok. | ![Cloud Shell in dit artikel](../media/cloud-shell-try-it/cli-try-it.png) |
 | Open Cloud Shell in uw browser. | [![https://shell.azure.com/bash](../media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
-| Klik op de knop **Cloud Shell** in het menu rechtsboven in [Azure Portal](https://portal.azure.com). |    ![Cloud Shell in de portal](../media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Klik op de knop **Cloud Shell** in het menu rechtsboven in [Azure Portal](https://portal.azure.com). | ![Cloud Shell in de portal](../media/cloud-shell-try-it/cloud-shell-menu.png) |
 |  |  |
-

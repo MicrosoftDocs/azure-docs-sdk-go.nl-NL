@@ -1,21 +1,21 @@
 ---
 title: Een virtuele Azure-machine vanuit Go implementeren
-description: Een virtuele machine implementeren met de Azure SDK voor Go.
+description: Implementeer een virtuele machine met de Azure SDK voor Go.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/03/2018
+ms.date: 07/13/2018
 ms.topic: quickstart
 ms.prod: azure
 ms.technology: azure-sdk-go
 ms.service: virtual-machines
 ms.devlang: go
-ms.openlocfilehash: 7592e8617436a76dd27cac5269971051982425bf
-ms.sourcegitcommit: 181d4e0b164cf39b3feac346f559596bd19c94db
+ms.openlocfilehash: 6b1de35748fb7694d45715fa7f028d5730530d2e
+ms.sourcegitcommit: d1790b317a8fcb4d672c654dac2a925a976589d4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38067013"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39039553"
 ---
 # <a name="quickstart-deploy-an-azure-virtual-machine-from-a-template-with-the-azure-sdk-for-go"></a>Snelstartgids: een virtuele Azure-machine implementeren vanuit een sjabloon met de Azure SDK voor Go
 
@@ -27,9 +27,9 @@ Aan het einde van deze snelstartgids voert u een VM uit waarbij u zich aanmeldt 
 
 [!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
 
-Als u een lokale installatie van Azure CLI gebruikt, vereist deze snelstart CLI-versie __2.0.28__ of hoger. Voer `az --version` uit om te controleren of de installatie van uw CLI voldoet aan deze vereiste. Als u uw CLI wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+Als u een lokale installatie van Azure CLI gebruikt, vereist deze snelstart CLI-versie __2.0.28__ of hoger. Voer `az --version` uit om te controleren of de installatie van uw CLI voldoet aan deze vereiste. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli).
 
-## <a name="install-the-azure-sdk-for-go"></a>De Azure SDK voor Go installeren 
+## <a name="install-the-azure-sdk-for-go"></a>De Azure SDK voor Go installeren
 
 [!INCLUDE [azure-sdk-go-get](includes/azure-sdk-go-get.md)]
 
@@ -242,7 +242,9 @@ De implementatiebestanden worden geladen door `readJSON`, waarvan de details in 
     }
 ```
 
-Deze code volgt hetzelfde patroon als het maken van de resourcegroep. Er wordt een nieuwe client gemaakt die kan verifiëren met Azure, waarna een methode wordt aangeroepen. De methode heeft zelfs dezelfde naam (`CreateOrUpdate`) als de bijbehorende methode voor resourcegroepen. Dit patroon is zichtbaar in de gehele SDK. Methoden die gelijksoortig werk uitvoeren, hebben doorgaans dezelfde naam.
+Deze code volgt hetzelfde patroon als het maken van de resourcegroep. Er wordt een nieuwe client gemaakt die kan verifiëren met Azure, waarna een methode wordt aangeroepen.
+De methode heeft zelfs dezelfde naam (`CreateOrUpdate`) als de bijbehorende methode voor resourcegroepen. Dit patroon is zichtbaar in de gehele SDK.
+Methoden die gelijksoortig werk uitvoeren, hebben doorgaans dezelfde naam.
 
 Het grootste verschil zit in de geretourneerde waarde van de methode `deploymentsClient.CreateOrUpdate`. Deze waarde is een type [vertraging](https://godoc.org/github.com/Azure/go-autorest/autorest/azure#Future), dat het [vertragingsontwerppatroon](https://en.wikipedia.org/wiki/Futures_and_promises) volgt. Vertragingen vertegenwoordigen een langdurige bewerking in Azure die u kunt controleren, annuleren of blokkeren bij de voltooiing.
 

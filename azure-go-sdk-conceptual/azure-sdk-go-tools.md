@@ -4,28 +4,28 @@ description: Hulpprogramma's om met de Azure SDK voor Go en Azure-services te we
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 01/30/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-sdk-go
 ms.devlang: go
-ms.openlocfilehash: 006d140bffb66fdd769a14511232d4ea5081811d
-ms.sourcegitcommit: 181d4e0b164cf39b3feac346f559596bd19c94db
+ms.openlocfilehash: dfa3912ac13e6f6d52d607f9dcc150f3a5b57602
+ms.sourcegitcommit: d1790b317a8fcb4d672c654dac2a925a976589d4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38066979"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39039502"
 ---
 # <a name="tools-for-developers-using-the-azure-sdk-for-go"></a>Hulpprogramma's voor ontwikkelaars die gebruikmaken van de Azure SDK voor Go
 
 Als u effectief wilt coderen met Go en u wilt dat Go perfect werkt met Azure-services, vindt u hieronder een aantal aanbevolen hulpprogramma's.
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
+## <a name="azure-cli"></a>Azure-CLI
 
-Azure CLI 2.0 biedt een opdrachtregelinterface om Azure-resources te maken en te configureren in uw abonnementen. De CLI kan u op weg helpen om snel algemene en gedeelde Azure-resources te maken, zodat u zich kunt richten op het complexere gebruik van de services. De CLI heeft query- en filterfuncties, zodat u uitvoer rechtstreeks kunt gebruiken in uw favoriete opdrachtregelprogramma's. De CLI is ter installatie beschikbaar op uw lokale systeem, als Docker-installatiekopie, of via [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Azure CLI biedt een opdrachtregelinterface om Azure-resources te maken en te configureren in uw abonnementen. De CLI kan u op weg helpen om snel algemene en gedeelde Azure-resources te maken, zodat u zich kunt richten op het complexere gebruik van de services. De CLI heeft query- en filterfuncties, zodat u uitvoer rechtstreeks kunt gebruiken in uw favoriete opdrachtregelprogramma's. De CLI is ter installatie beschikbaar op uw lokale systeem, als Docker-installatiekopie, of via [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!div class="nextstepaction"]
-> [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli)
+> [Azure CLI installeren](/cli/azure/install-azure-cli)
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -34,6 +34,13 @@ Visual Studio Code is een lichtgewicht editor die via extensies uitgebreide onde
 * [Visual Studio Code installeren](https://code.visualstudio.com/Download)
 * [De Go-extensie voor Visual Studio Code downloaden](https://code.visualstudio.com/docs/languages/go)
 * [De extensie voor Azure Tools downloaden](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
+
+## <a name="cicd-with-azure-devops-project"></a>CI/CD met Azure DevOps Project
+
+Met de Azure DevOps Project-pijplijn kunt u continue compilatie en implementatie instellen voor uw Go-toepassingen. U hebt hiervoor alleen een beschikbare git-opslagplaats nodig. Implementatie en tests kunt u rechtstreeks op uw Azure-resources uitvoeren. De configuratiepijplijn is eenvoudig te maken en beheren. Aangezien de pijplijn rechtstreeks in Azure is ingericht, kunt u deze op dezelfde manier als al uw andere Azure-resources beheren.
+
+> [!div class="nextstepaction"]
+> [Leer hoe u een CI/CD-pijplijn maakt met Azure DevOps Project](/devops-project/azure-devops-project-go)
 
 ## <a name="dependency-management-with-dep"></a>Beheer van afhankelijkheden met dep
 

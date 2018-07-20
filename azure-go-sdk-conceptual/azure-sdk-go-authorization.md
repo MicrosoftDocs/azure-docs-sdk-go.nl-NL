@@ -12,12 +12,12 @@ ms.technology: azure-sdk-go
 ms.devlang: go
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: c7970167070bdf1f3fc75692f3e34268801c65df
-ms.sourcegitcommit: 181d4e0b164cf39b3feac346f559596bd19c94db
+ms.openlocfilehash: f5e76fc745512a3a52172f560c3a24f510e96feb
+ms.sourcegitcommit: d1790b317a8fcb4d672c654dac2a925a976589d4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38066996"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39039536"
 ---
 # <a name="authentication-methods-in-the-azure-sdk-for-go"></a>Verificatiemethoden in de Azure SDK voor Go
 
@@ -30,19 +30,19 @@ De Azure SDK voor Go biedt verschillende typen verificatie met verschillende ref
 | Verificatietype | Aanbevolen |
 |---------------------|---------------------|
 | Verificatie op basis van certificaat | U hebt een X509-certificaat dat is geconfigureerd voor een AAD-gebruiker (Azure Active Directory) of service-principal. Zie [Aan de slag met verificatie op basis van certificaten in Azure Active Directory] voor meer informatie. |
-| Clientreferenties | U hebt een geconfigureerde service-principal die is ingesteld voor deze toepassing of een klasse toepassingen waar deze onderdeel van uitmaakt. Zie [Een service-principal maken met Azure CLI 2.0] voor meer informatie. |
+| Clientreferenties | U hebt een geconfigureerde service-principal die is ingesteld voor deze toepassing of een klasse toepassingen waar deze onderdeel van uitmaakt. Zie [Een service-principal maken met Azure CLI] voor meer informatie. |
 | Managed Service Identity (MSI) | Uw toepassing wordt uitgevoerd op een Azure-resource die is geconfigureerd met Managed Service Identity (MSI). Zie [Managed Service Identity (MSI) voor Azure-resources] voor meer informatie. |
 | Apparaattoken | Uw toepassing is __uitsluitend__ bedoeld om interactief te worden gebruikt en heeft een groot aantal gebruikers, die mogelijk afkomstig zijn van meerdere AAD-tenants. Gebruikers hebben toegang tot een webbrowser om zich aan te melden. Zie [Apparaattokenverificatie gebruiken](#use-device-token-authentication) voor meer informatie.|
 | Gebruikersnaam en wachtwoord | U hebt een interactieve toepassing die geen gebruik van maken van een andere verificatiemethode. Multi-Factor Authentication is niet ingeschakeld voor de AAD-aanmelding van uw gebruikers. |
 
 > [!IMPORTANT]
 > Als u een ander verificatietype dan clientreferenties gebruikt, moet uw toepassing worden geregistreerd in Azure Active Directory. Zie [Toepassingen integreren met Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications) voor meer informatie.
-
+>
 > [!NOTE]
 > Voorkom verificatie aan de hand van gebruikersnaam en wachtwoord, tenzij u speciale vereisten hebt. In situaties waarin aanmelding op basis van gebruikers geschikt is, kan doorgaans in plaats hiervan apparaattokenverificatie worden gebruikt.
 
 [Aan de slag met verificatie op basis van certificaten in Azure Active Directory]: /azure/active-directory/active-directory-certificate-based-authentication-get-started
-[Een service-principal maken met Azure CLI 2.0]: /cli/azure/create-an-azure-service-principal-azure-cli
+[Een service-principal maken met Azure CLI]: /cli/azure/create-an-azure-service-principal-azure-cli
 [Managed Service Identity (MSI) voor Azure-resources]: /azure/active-directory/managed-service-identity/overview
 
 Deze verificatietypen zijn beschikbaar via verschillende methoden. Met [_verificatie op basis van de omgeving_](#use-environment-based-authentication) worden referenties rechtstreeks uit de omgeving van het programma gelezen. Met [_verificatie op basis van het bestand_](#use-file-based-authentication) wordt er een bestand geladen met de referenties van de service-principal. Met [_verificatie op basis van de client_](#use-an-authentication-client) wordt er gebruikgemaakt van een object in Go-code en bent u verantwoordelijk voor de levering van de referenties wanneer het programma wordt uitgevoerd. Met [_apparaattokenverificatie_](#use-device-token-authentication) moeten gebruikers zich interactief met een token aanmelden via een webbrowser. Deze methode kan niet worden gebruikt met omgevings- of bestandsgebaseerde verificatie.
@@ -54,7 +54,7 @@ Alle verificatiefuncties en -typen zijn beschikbaar in het `github.com/Azure/go-
 
 ## <a name="use-environment-based-authentication"></a>Verificatie op basis van de omgeving gebruiken
 
-Als uw toepassing wordt uitgevoerd in een strak beheerde omgeving, zoals in een container, is verificatie op basis van de omgeving is een logische keuze. U kunt de shell-omgeving configureren voordat u uw toepassing uitvoert en de Go SDK deze omgevingsvariabelen tijdens runtime leest om te verifiëren bij Azure. 
+Als uw toepassing wordt uitgevoerd in een strak beheerde omgeving, zoals in een container, is verificatie op basis van de omgeving is een logische keuze. U kunt de shell-omgeving configureren voordat u uw toepassing uitvoert en de Go SDK deze omgevingsvariabelen tijdens runtime leest om te verifiëren bij Azure.
 
 Verificatie op basis van de omgeving biedt ondersteuning voor alle verificatiemethoden behalve apparaattokens, die in de volgende volgorde worden geëvalueerd: clientreferenties, certificaten, gebruikersnaam en wachtwoord en Managed Service Identity (MSI). Als een vereiste omgevingsvariabele is uitgeschakeld of de SDK een weigering van de verificatieservice ontvangt, wordt het volgende verificatietype geprobeerd. Als de SDK kan niet worden geverifieerd vanuit de omgeving, wordt er een fout geretourneerd.
 
@@ -109,10 +109,9 @@ De `ResourceManagerURL` varieert op basis van de regionaam, de computernaam en d
 
 Voor meer informatie over het gebruik van de Azure-SDK voor Go in Azure Stack raadpleegt u [Use API version profiles with Go in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-go) (API-versieprofielen met Go gebruiken in Azure Stack).
 
-
 ## <a name="use-file-based-authentication"></a>Verificatie op basis van een bestand gebruiken
 
-Verificatie op basis van een bestand werkt alleen met clientreferenties wanneer deze zijn opgeslagen in een lokale bestandsindeling die is gegenereerd door [Azure CLI 2.0](/cli/azure). U kunt dit bestand gemakkelijk maken wanneer u een nieuwe service-principal met de parameter `--sdk-auth` maakt. Als u van plan bent verificatie op basis van een bestand te gebruiken, zorgt u ervoor dat dit argument wordt opgegeven bij het maken van een service-principal. Aangezien de CLI de uitvoer afdrukt naar `stdout`, moet de uitvoer worden omgeleid naar een bestand.
+Verificatie op basis van een bestand werkt alleen met clientreferenties wanneer deze zijn opgeslagen in een lokale bestandsindeling die is gegenereerd door [Azure CLI](/cli/azure). U kunt dit bestand gemakkelijk maken wanneer u een nieuwe service-principal met de parameter `--sdk-auth` maakt. Als u van plan bent verificatie op basis van een bestand te gebruiken, zorgt u ervoor dat dit argument wordt opgegeven bij het maken van een service-principal. Aangezien de CLI de uitvoer afdrukt naar `stdout`, moet de uitvoer worden omgeleid naar een bestand.
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth > azure.auth
@@ -127,7 +126,7 @@ import "github.com/Azure/go-autorest/autorest/azure/auth"
 authorizer, err := NewAuthorizerFromFile(azure.PublicCloud.ResourceManagerEndpoint)
 ```
 
-Zie [Een service-principal maken met Azure CLI 2.0] voor meer informatie over het gebruik van service-principals en het beheer van de toegangsmachtigingen.
+Zie [Een service-principal maken met Azure CLI] voor meer informatie over het gebruik van service-principals en het beheer van de toegangsmachtigingen.
 
 ## <a name="use-device-token-authentication"></a>Apparaattokenverificatie gebruiken
 

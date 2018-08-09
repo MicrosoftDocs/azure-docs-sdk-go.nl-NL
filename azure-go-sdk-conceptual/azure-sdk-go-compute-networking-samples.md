@@ -10,12 +10,12 @@ ms.prod: azure
 ms.technology: azure-sdk-go
 ms.service: virtual-machines
 ms.devlang: go
-ms.openlocfilehash: 4837572a50ae934e71bfe49d916c01e131bb6d83
-ms.sourcegitcommit: f08abf902b48f8173aa6e261084ff2cfc9043305
+ms.openlocfilehash: 3b31716ee42c638bab4a6dd99b9eb0d7c07e51a4
+ms.sourcegitcommit: 0f581979216f7c9d4913681a6d9f6fe09af26e43
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32319693"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39475786"
 ---
 # <a name="azure-sdk-for-go-samples-for-compute-and-networking"></a>Azure-SDK voor Go-voorbeelden voor reken- en netwerktaken
 
@@ -26,5 +26,7 @@ Alle voorbeelden van de Azure-SDK voor Go zijn beschikbaar op [GitHub](https://g
 | Naam | Beschrijving |
 |------|-------------|
 | [network/network](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/network/network.go) | Hiermee kunt u netwerkresources, waaronder virtuele netwerken, subnetten en netwerkbeveiligingsgroepen, maken, bijwerken, verwijderen en er query's op uitvoeren. |
-| [compute/loadbalancer](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/compute/loadbalancer.go) | Hiermee kunt u beschikbaarheidsgroepen maken en er query's op uitvoeren, en VM's met een load balancer maken. |
-| [compute/compute](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/compute/compute.go) | Hiermee kunt u VM's maken, verwijderen, bijwerken en het energieverbruik ervan beheren. U kunt werken met gegevensschijven en de besturingssysteemschijf van de VM beheren. |
+| [compute/vm_disk](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/compute/vm_disk.go) | Gegevensschijven voor een virtuele machine maken, koppelen, ontkoppelen en versleutelen. |
+| [compute/vm](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/compute/vm.go) | Virtuele machines maken, bijwerken, deactiveren en beheren. |
+| [compute/vm_with_availabilityset](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/compute/vm_with_availabilityset.go) | Beschikbaarheidssets en load balancers voor virtuele machines maken. |
+| [compute/vm_with_identity](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/compute/vm_with_identity.go) | Managed Service-Identities (MSI's) voor virtuele machines maken. |

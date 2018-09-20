@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-sdk-go
 ms.devlang: go
-ms.openlocfilehash: 3388359bba791c87025b6ffd0e6b476f95589f73
-ms.sourcegitcommit: 81e97407e6139375bf7357045e818c87a17dcde1
+ms.openlocfilehash: 013a771345d96f0fa8dbece3218a01650744f70b
+ms.sourcegitcommit: 8b9e10b960150dc08f046ab840d6a5627410db29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36262973"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44059183"
 ---
 # <a name="install-the-azure-sdk-for-go"></a>De Azure SDK voor Go installeren
 
@@ -37,9 +37,9 @@ Sommige Azure-services hebben hun eigen SDK voor Go en zijn niet opgenomen in he
 
 ## <a name="vendor-the-azure-sdk-for-go"></a>De Azure SDK voor Go bewaren in Vendor
 
-Het is mogelijk om de Azure SDK voor Go in de map Vendor te bewaren via [dep](https://github.com/golang/dep). Ten behoeve van de stabiliteit is het aanbevolen om Vendor te gebruiken. Als u ondersteuning voor `dep` wilt gebruiken, voegt u `github.com/Azure/azure-sdk-for-go` aan een `[[constraint]]`-sectie van uw `Gopkg.toml`. Als u bijvoorbeeld gebruik wilt maken van Vendor op versie `14.0.0`, voegt u de volgende vermelding toe:
+Het is mogelijk om de Azure SDK voor Go in de map Vendor te bewaren via [dep](https://github.com/golang/dep). Ten behoeve van de stabiliteit is het aanbevolen om Vendor te gebruiken. Gebruik `dep` in uw eigen project, voeg `github.com/Azure/azure-sdk-for-go` toe aan een sectie `[[constraint]]` van uw `Gopkg.toml`. Als u bijvoorbeeld gebruik wilt maken van Vendor op versie `14.0.0`, voegt u de volgende vermelding toe:
 
-```
+```toml
 [[constraint]]
 name = "github.com/Azure/azure-sdk-for-go"
 version = "14.0.0"
@@ -62,13 +62,14 @@ U krijgt een volledige lijst te zien van de beschikbare modules van GoDoc voor [
 [autorest/adal]: https://godoc.org/github.com/Azure/go-autorest/autorest/adal
 [autorest/to]: https://godoc.org/github.com/Azure/go-autorest/autorest/to
 
-Modules voor Azure-services krijgen afzonderlijk van hun SDK-API een versienummer. Deze versies zijn onderdeel van het importpad van de module en zijn afkomstig van een _serviceversie_ of een _profiel_. Het is momenteel aanbevolen dat u een specifieke serviceversie gebruikt voor zowel de ontwikkeling als de release. Services bevinden zich in de module `services`. Het volledige pad voor importeren is de naam van de service, gevolgd door de versie in de indeling `YYYY-MM-DD` en weer gevolgd door de naam van de service. Als u bijvoorbeeld de versie van `2017-03-30` wilt opnemen in de Compute-service, gebruikt u:
+Go-pakketten en Azure-services krijgen onafhankelijk van elkaar een versienummer. De serviceversies zijn deel van het importpad van de module, onder de module `services`. Het volledige pad voor de module is de naam van de service, gevolgd door de versie in de indeling `YYYY-MM-DD` en weer gevolgd door de naam van de service. Als u bijvoorbeeld de versie van `2017-03-30` wilt importeren in de Compute-service, gebruikt u:
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/services/compute/mgmt/2017-03-30/compute"
 ```
 
-Het is momenteel aanbevolen dat u de laatste versie van een service gebruikt, tenzij u een goede reden hebt om dat niet te doen.
+Het wordt aanbevolen dat u de nieuwste versie van een service gebruikt wanneer u begint te ontwikkelen en dat u die behoudt.
+Servicevereisten kunnen verschillen tussen versies en dat kan uw code breken, zelfs als er op dat moment geen updates van de Go SDK zijn.
 
 U kunt ook één profielversie selecteren als u een collectieve momentopname van de services nodig hebt. Het enige vergrendelde profiel is momenteel `2017-03-09`, dat wellicht niet over de nieuwste functies of services beschikt. Profielen bevinden zich in de module `profiles` met de versie in de indeling `YYYY-MM-DD`. Services worden op basis van hun profielversie gegroepeerd. Als u bijvoorbeeld de Azure Resources-beheermodule wilt importeren uit het profiel `2017-03-09`, gebruikt u:
 

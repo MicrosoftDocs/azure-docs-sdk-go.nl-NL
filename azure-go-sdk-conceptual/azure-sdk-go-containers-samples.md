@@ -1,25 +1,24 @@
 ---
 title: Azure-SDK voor Go-voorbeelden voor containers
-description: Geselecteerde voorbeelden om met ACI en AKS te werken met behulp van de Azure-SDK voor Go.
+description: Geselecteerde voorbeelden voor werken met Azure Container Instances en Azure Kubernetes Service vanuit de Azure SDK voor Go.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/21/2018
+ms.date: 09/05/2018
 ms.topic: sample
-ms.prod: azure
 ms.technology: azure-sdk-go
 ms.service: container-service
 ms.devlang: go
-ms.openlocfilehash: 6fad418ec59bfb44433842de2c32a40d2574640e
-ms.sourcegitcommit: 0f581979216f7c9d4913681a6d9f6fe09af26e43
+ms.openlocfilehash: cb57fd9dbb75cab1205e1cb56c45272fe9c8dba6
+ms.sourcegitcommit: 8b9e10b960150dc08f046ab840d6a5627410db29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39475820"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44059052"
 ---
 # <a name="azure-sdk-for-go-samples-for-containers"></a>Azure-SDK voor Go-voorbeelden voor containers
 
-In de volgende tabel ziet u koppelingen naar voorbeelden van Go-broncode die u kunt gebruiken om in Azure met containers te werken via Azure Container Instances (ACI) of Azure Kubernetes Service (AKS). 
+In de volgende tabel staan geselecteerde voorbeelden waarmee het beheer van Azure Container Instances (ACI) en Azure Kubernetes Service (AKS) vanuit de Azure SDK voor Go wordt gedemonstreerd.
 
 Alle voorbeelden van de Azure-SDK voor Go zijn beschikbaar op [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples).
 

@@ -1,20 +1,20 @@
 ---
-title: Hulpprogramma's voor Go-ontwikkelaars
+title: Hulpprogramma's voor ontwikkelaars die gebruikmaken van de Azure SDK voor Go
 description: Hulpprogramma's om met de Azure SDK voor Go en Azure-services te werken
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/13/2018
+ms.date: 09/05/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-sdk-go
 ms.devlang: go
-ms.openlocfilehash: dfa3912ac13e6f6d52d607f9dcc150f3a5b57602
-ms.sourcegitcommit: d1790b317a8fcb4d672c654dac2a925a976589d4
+ms.openlocfilehash: 70cf7d645f47df29e8e42599a0acd75858144783
+ms.sourcegitcommit: 8b9e10b960150dc08f046ab840d6a5627410db29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39039502"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44059200"
 ---
 # <a name="tools-for-developers-using-the-azure-sdk-for-go"></a>Hulpprogramma's voor ontwikkelaars die gebruikmaken van de Azure SDK voor Go
 
@@ -29,22 +29,22 @@ Azure CLI biedt een opdrachtregelinterface om Azure-resources te maken en te con
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
-Visual Studio Code is een lichtgewicht editor die via extensies uitgebreide ondersteuning biedt voor Go. Deze extensies omvatten ondersteuning voor functies als automatisch aanvullen, `impl`-sjablonen, herstructurering en foutopsporing. Visual Studio Code biedt ook veel extensies voor algemene hulpprogramma's voor ontwikkelaars, zoals broncodebeheer, en biedt zelfs extensies voor rechtstreekse communicatie met Azure-services. Microsoft onderhoudt een officiële meta-extensie, inclusief deze Azure-extensies, waaronder een interactieve interface voor de Azure CLI.
+Visual Studio Code is een lichtgewicht editor die ondersteuning voor Go biedt. Deze extensies biedt functies als automatisch aanvullen `impl`-sjablonen, herstructurering en foutopsporing. Visual Studio Code biedt ook ondersteuning voor toegang tot broncodebeheer via de editor en extensies om met Azure-services te kunnen werken.
 
 * [Visual Studio Code installeren](https://code.visualstudio.com/Download)
 * [De Go-extensie voor Visual Studio Code downloaden](https://code.visualstudio.com/docs/languages/go)
-* [De extensie voor Azure Tools downloaden](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
+* [De Visual Studio Code Azure Tools-extensie ophalen](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## <a name="cicd-with-azure-devops-project"></a>CI/CD met Azure DevOps Project
 
-Met de Azure DevOps Project-pijplijn kunt u continue compilatie en implementatie instellen voor uw Go-toepassingen. U hebt hiervoor alleen een beschikbare git-opslagplaats nodig. Implementatie en tests kunt u rechtstreeks op uw Azure-resources uitvoeren. De configuratiepijplijn is eenvoudig te maken en beheren. Aangezien de pijplijn rechtstreeks in Azure is ingericht, kunt u deze op dezelfde manier als al uw andere Azure-resources beheren.
+Met Azure DevOpjs Project-pijplijnen stelt u een systeem voor continue integratie in voor uw Go-toepassingen. Alles wat u nodig hebt is een git-opslagplaats, daarna kunt u meteen implementeren en testen in Azure.
 
 > [!div class="nextstepaction"]
-> [Leer hoe u een CI/CD-pijplijn maakt met Azure DevOps Project](/devops-project/azure-devops-project-go)
+> [Leer hoe u een CI/CD-pijplijn maakt met Azure DevOps Project](/azure/devops-project/azure-devops-project-go)
 
 ## <a name="dependency-management-with-dep"></a>Beheer van afhankelijkheden met dep
 
-Met Go zijn er vele manieren om uw pakketafhankelijkheden te beheren en in de map Vendor te bewaren, aangezien er nog geen officiële oplossing is. De aanbevolen manier voor dit beheer is met de afhankelijkheidsbeheerder `dep`. De Azure SDK voor Go gebruikt dep om zichzelf in Vendor te bewaren en haalt gegarandeerd afhankelijkheden voor elk project op de juiste manier op met behulp van dep.
+De Azure SDK voor Go gebruikt dep voor het beheer van afhankelijkheden. Met de dep-opdracht kunt u vereisten voor uw Go-toepassing opvragen en plaatsen, waarmee u versieconflicten vermijdt en ervoor zorgt dat uw project juist werkt.
 
 > [!div class="nextstepaction"]
 > [De afhankelijkheidsbeheerder dep downloaden](https://github.com/golang/dep)

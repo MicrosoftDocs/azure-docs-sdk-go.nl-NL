@@ -4,24 +4,26 @@ description: Implementeer een virtuele machine met de Azure SDK voor Go.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/13/2018
+ms.date: 09/05/2018
 ms.topic: quickstart
-ms.prod: azure
 ms.technology: azure-sdk-go
 ms.service: virtual-machines
 ms.devlang: go
-ms.openlocfilehash: 6b1de35748fb7694d45715fa7f028d5730530d2e
-ms.sourcegitcommit: d1790b317a8fcb4d672c654dac2a925a976589d4
+ms.openlocfilehash: a7970be0857fd414d776241b033af0c23457790c
+ms.sourcegitcommit: 8b9e10b960150dc08f046ab840d6a5627410db29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39039553"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44059132"
 ---
 # <a name="quickstart-deploy-an-azure-virtual-machine-from-a-template-with-the-azure-sdk-for-go"></a>Snelstartgids: een virtuele Azure-machine implementeren vanuit een sjabloon met de Azure SDK voor Go
 
-Deze snelstartgids is gericht op de implementatie van resources vanuit een sjabloon met de Azure SDK voor Go. Sjablonen zijn momentopnames van alle resources die in een [Azure-resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) zijn opgenomen. Gaandeweg raakt u bekend met de functionaliteiten en conventies van de SDK en ondertussen voert u een handige taak uit.
+In deze snelstartgids leert u hoe u resources implementeert vanuit een Azure Resource Manager-sjabloon met behulp van de Azure SDK voor Go. Sjablonen zijn momentopnames van alle resources binnen een [Azure-resourcegroep](/azure/azure-resource-manager/resource-group-overview). Gaandeweg raakt u bekend met de functionaliteiten en conventies van de SDK.
 
 Aan het einde van deze snelstartgids voert u een VM uit waarbij u zich aanmeldt met een gebruikersnaam en een wachtwoord.
+
+> [!NOTE]
+> Als u wilt zien hoe een VM in Go wordt gemaakt zonder een Resource Manager-sjabloon, is er een [essentieel voorbeeld](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/compute/vm.go) waarin wordt gedemonstreerd hoe u alle VM-resources met de SDK maakt en configureert. Als u een sjabloon in dit voorbeeld gebruikt, kunnen we ons richten op SDK-conventies zonder dat we te gedetailleerd moeten ingaan op Azure-servicearchitectuur.
 
 [!INCLUDE [quickstarts-free-trial-note](includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +40,7 @@ Als u een lokale installatie van Azure CLI gebruikt, vereist deze snelstart CLI-
 Als u zich niet-interactief met een toepassing wilt aanmelden bij Azure, hebt u een service-principal nodig. Service-principals zijn onderdeel van op rollen gebaseerd toegangsbeheer (RBAC), waarmee een unieke gebruikersidentiteit wordt gemaakt. Als u een nieuwe service-principal wilt maken met de CLI, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name az-go-vm-quickstart --sdk-auth > quickstart.auth
+az ad sp create-for-rbac --sdk-auth > quickstart.auth
 ```
 
 Stel de omgevingsvariabele `AZURE_AUTH_LOCATION` in op het volledige pad naar dit bestand. De SDK zoekt en leest vervolgens de referenties rechtstreeks uit dit bestand. U hoeft geen wijzigingen door te voeren of gegevens vast te leggen vanuit de service-principal.
@@ -62,13 +64,7 @@ cd $GOPATH/src/github.com/azure-samples/azure-sdk-for-go-samples/quickstarts/dep
 go run main.go
 ```
 
-Als er in de implementatie iets fout gaat, wordt er een bericht weergegeven waarin wordt vermeld dat er een probleem is opgetreden, maar mogelijk staat er niet genoeg informatie in. U kunt met de Azure CLI de volledige details van de implementatiefout ophalen met behulp van de volgende opdracht:
-
-```azurecli-interactive
-az group deployment show -g GoVMQuickstart -n VMDeployQuickstart
-```
-
-Als de implementatie succesvol is, krijgt u een bericht met de gebruikersnaam, het IP-adres en het wachtwoord voor aanmelding bij de nieuw gemaakte virtuele machine. Gebruik SSH om u aan te melden bij deze machine en bevestig dat deze actief is.
+Als de implementatie succesvol is, krijgt u een bericht met de gebruikersnaam, het IP-adres en het wachtwoord voor aanmelding bij de nieuw gemaakte virtuele machine. Gebruik SSH om u aan te melden bij deze machine om te bekijken of deze actief is. 
 
 ## <a name="cleaning-up"></a>Opschonen
 
@@ -77,6 +73,18 @@ Schoon de resources die tijdens deze snelstart zijn gemaakt op door de resourceg
 ```azurecli-interactive
 az group delete -n GoVMQuickstart
 ```
+
+Verwijder ook de service-principal die is gemaakt. In het bestand `quickstart.auth` staat een JSON-sleutel voor `clientId`. Kopieer deze waarde in de omgevingsvariabele `CLIENT_ID_VALUE` en voer de volgende Azure CLI-opdracht uit:
+
+```azurecli-interactive
+az ad sp delete --id ${CLIENT_ID_VALUE}
+```
+
+Waar u de waarde voor `CLIENT_ID_VALUE` invoert vanuit `quickstart.auth`.
+
+> [!WARNING]
+> Als u de service-principal voor deze toepassing niet verwijdert, blijft deze actief in uw Azure Active Directory-tenant.
+> Hoewel zowel de naam en het wachtwoord van de service-principal worden gegenereerd als UUID's, moet u ervoor zorgen dat u goede beveiligingsprocedures volgt door ongebruikte service-principals en Azure Active Directory-toepassingen te verwijderen.
 
 ## <a name="code-in-depth"></a>De code uitgesplitst
 
@@ -111,7 +119,7 @@ var (
 
 Er worden waarden opgegeven waardoor de gemaakte resources hun naam krijgen. De locatie wordt hier ook opgegeven. Deze kunt u aanpassen om te zien hoe implementaties zich in andere datacenters gedragen. Niet elk datacenter beschikt over alle vereiste resources.
 
-Het type `clientInfo` is gedeclareerd om alle informatie in te kapselen die onafhankelijk van het verificatiebestand moet worden geladen om clients in de SDK en het wachtwoord van de virtuele machine in te stellen.
+Het type `clientInfo` bewaart de informatie die vanuit het verificatiebestand is geladen om clients in te stellen in de SDK en om het VM-wachtwoord in te stellen.
 
 De constanten `templateFile` en `parametersFile` verwijzen naar de bestanden die nodig zijn voor de implementatie. De `authorizer` wordt geconfigureerd door de Go-SDK voor verificatie en de variabele `ctx` is een [Go-context](https://blog.golang.org/context) voor de netwerkbewerkingen.
 
@@ -168,9 +176,9 @@ De stappen die door de code worden uitgevoerd, zijn in volgorde:
 
 * De resourcegroep maken om te implementeren in (`createGroup`)
 * De implementatie in deze groep maken (`createDeployment`)
-* De aanmeldingsgegevens voor de geïmplementeerde VM verkrijgen en weergeven (`getLogin`)
+* De aanmeldingsgegevens voor de geïmplementeerde VM ophalen en weergeven (`getLogin`)
 
-### <a name="creating-the-resource-group"></a>De resourcegroep maken
+### <a name="create-the-resource-group"></a>De resourcegroep maken
 
 De functie `createGroup` maakt de resourcegroep. Als u naar de aanroepstroom en argumenten kijkt, ziet u de manier waarop service-interacties binnen de SDK zijn gestructureerd.
 
@@ -197,7 +205,7 @@ De functie [`to.StringPtr`](https://godoc.org/github.com/Azure/go-autorest/autor
 
 De methode `groupsClient.CreateOrUpdate` retourneert een aanwijzer naar een gegevenstype die de gehele resourcegroep vertegenwoordigt. Een rechtstreeks geretourneerde waarde van dit type geeft een korte bewerking aan die synchroon moet zijn. In de volgende sectie ziet u een voorbeeld van een langdurige bewerking en ziet u hoe u daarmee communiceert.
 
-### <a name="performing-the-deployment"></a>De implementatie uitvoeren
+### <a name="perform-the-deployment"></a>De implementatie uitvoeren
 
 Nadat de resourcegroep is gemaakt, is het tijd om de implementatie uit te voeren. Deze code wordt opgedeeld in kleinere secties om nadruk te leggen op verschillende onderdelen van de logica ervan.
 
@@ -254,20 +262,13 @@ Het grootste verschil zit in de geretourneerde waarde van de methode `deployment
     if err != nil {
         return
     }
-    deployment, err = deploymentFuture.Result(deploymentsClient)
-
-    // Work around possible bugs or late-stage failures
-    if deployment.Name == nil || err != nil {
-        deployment, _ = deploymentsClient.Get(ctx, resourceGroupName, deploymentName)
-    }
-    return
+    return deploymentFuture.Result(deploymentsClient)
+}
 ```
 
 Voor dit voorbeeld is het beste om te wachten tot de bewerking is voltooid. Voor het wachten op een vertraging is zowel een [contextobject](https://blog.golang.org/context) nodig als de client die de `Future` heeft gemaakt. Er zijn hier twee mogelijke foutbronnen: een fout die wordt veroorzaakt aan de clientzijde wanneer de methode wordt aangeroepen en een foutmelding vanaf de server. De laatste wordt geretourneerd als onderdeel van de aanroep `deploymentFuture.Result`.
 
-Zodra de implementatie-informatie is opgehaald, is er een tijdelijke oplossing voor mogelijke fouten waarbij de implementatie-informatie mogelijk leeg is met een handmatige aanroep naar `deploymentsClient.Get` om ervoor te zorgen dat de gegevens worden ingevuld.
-
-### <a name="obtaining-the-assigned-ip-address"></a>Het toegewezen IP-adres verkrijgen
+### <a name="get-the-assigned-ip-address"></a>Het toegewezen IP-adres ophalen
 
 Als u iets wilt doen met de nieuw gemaakte VM, hebt u het toegewezen IP-adres nodig. IP-adressen zijn afzonderlijke Azure-resources en gebonden aan Network Interface Controller-resources (NIC).
 
@@ -301,7 +302,7 @@ De waarde voor de gebruiker van de virtuele machine wordt ook geladen vanuit de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een bestaande sjabloon gebruikt en deze via Go geïmplementeerd. U hebt vervolgens via SSH verbinding gemaakt met de nieuw gemaakte VM om te controleren of deze werd uitgevoerd.
+In deze snelstartgids hebt u een bestaande sjabloon gebruikt en deze via Go geïmplementeerd. U hebt vervolgens via SSH verbinding gemaakt met de nieuw gemaakte VM.
 
 Als u meer te weten wilt komen over werken met virtuele machines in de Azure-omgeving met Go, kunt u de [Azure-berekeningsvoorbeelden voor Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/compute) of de [voorbeelden van Azure-resourcebeheer voor Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/resources) bekijken.
 

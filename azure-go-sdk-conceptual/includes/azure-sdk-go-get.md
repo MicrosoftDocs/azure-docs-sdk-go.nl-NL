@@ -2,21 +2,21 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/14/2018
+ms.date: 09/05/2018
 ms.topic: include
 ms.prod: azure
 ms.technology: azure-cli
-ms.openlocfilehash: d021dd8ef4744b7c50b296b231bf63481f92411a
-ms.sourcegitcommit: 2a3bd491e087a1d0e7d269bed896c029357d62a6
+ms.openlocfilehash: 5df14f939efdd0550b49261c88c8dc6518ada459
+ms.sourcegitcommit: 8b9e10b960150dc08f046ab840d6a5627410db29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988063"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44059259"
 ---
-De [Azure SDK voor Go](https://github.com/Azure/azure-sdk-for-go) is compatibel met Go-versie 1.8 en hoger. Voor omgevingen die gebruikmaken van [Azure Stack-profielen](https://docs.microsoft.com/azure/azure-stack/azure-stack-version-profiles) is Go-versie 1.9 de minimale vereiste.
-Als u Go niet op uw systeem hebt staan, volgt u [de installatie-instructies voor Go](https://golang.org/doc/install).
+De [Azure SDK voor Go](https://github.com/Azure/azure-sdk-for-go) is compatibel met Go-versie 1.8 en hoger. Voor omgevingen die gebruikmaken van [Azure Stack-profielen](/azure/azure-stack/user/azure-stack-version-profiles-go) is Go-versie 1.9 de minimale vereiste.
+Volg [de installatie-instructies voor Go](https://golang.org/doc/install) als u Go moet installeren.
 
-U kunt de Azure SDK voor Go en de afhankelijkheden ervan via `go get` verkrijgen.
+U downloadt de Azure SDK voor Go en de afhankelijkheden ervan via `go get`.
 
 ```bash
 go get -u -d github.com/Azure/azure-sdk-for-go/...

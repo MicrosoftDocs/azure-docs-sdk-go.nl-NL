@@ -11,12 +11,12 @@ ms.technology: azure-sdk-go
 ms.devlang: go
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: 28fd4a4c0832ab19dcf52dc549d0ddc0d1eec6f1
-ms.sourcegitcommit: 8b9e10b960150dc08f046ab840d6a5627410db29
+ms.openlocfilehash: 8f94b9ba715c32263d324306cce69bd484c05702
+ms.sourcegitcommit: c435f6602524565d340aac5506be5e955e78f16c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44059098"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44711971"
 ---
 # <a name="authentication-methods-in-the-azure-sdk-for-go"></a>Verificatiemethoden in de Azure SDK voor Go
 
@@ -30,7 +30,7 @@ De Azure SDK voor Go biedt verschillende typen verificatie met verschillende ref
 |---------------------|---------------------|
 | Verificatie op basis van certificaat | U hebt een X509-certificaat dat is geconfigureerd voor een AAD-gebruiker (Azure Active Directory) of service-principal. Zie [Aan de slag met verificatie op basis van certificaten in Azure Active Directory] voor meer informatie. |
 | Clientreferenties | U hebt een geconfigureerde service-principal die is ingesteld voor deze toepassing of een klasse toepassingen waar deze onderdeel van uitmaakt. Zie [Een service-principal maken met Azure CLI] voor meer informatie. |
-| Managed Service Identity (MSI) | Uw toepassing wordt uitgevoerd op een Azure-resource die is geconfigureerd met Managed Service Identity (MSI). Zie [Managed Service Identity (MSI) voor Azure-resources] voor meer informatie. |
+| Beheerde identiteiten voor Azure-resources | Uw toepassing wordt uitgevoerd op een Azure-resource die is geconfigureerd met een beheerde identiteit. Zie [Beheerde identiteiten voor Azure-resources] voor meer informatie. |
 | Apparaattoken | Het is de bedoeling dat uw toepassing __alleen__ interactief wordt gebruikt. Gebruikers hebben mogelijk meervoudige verificatie ingesteld. Gebruikers hebben toegang tot een webbrowser om zich aan te melden. Zie [Apparaattokenverificatie gebruiken](#use-device-token-authentication) voor meer informatie.|
 | Gebruikersnaam en wachtwoord | U hebt een interactieve toepassing die geen enkele andere verificatiemethode kan gebruiken. Meervoudige verificatie is niet ingeschakeld voor de AAD-aanmelding van uw gebruikers. |
 
@@ -42,7 +42,7 @@ De Azure SDK voor Go biedt verschillende typen verificatie met verschillende ref
 
 [Aan de slag met verificatie op basis van certificaten in Azure Active Directory]: /azure/active-directory/active-directory-certificate-based-authentication-get-started
 [Een service-principal maken met Azure CLI]: /cli/azure/create-an-azure-service-principal-azure-cli
-[Managed Service Identity (MSI) voor Azure-resources]: /azure/active-directory/managed-service-identity/overview
+[Beheerde identiteiten voor Azure-resources]: /azure/active-directory/managed-identities-azure-resources/overview
 
 Deze verificatietypen zijn beschikbaar via verschillende methoden.
 
@@ -65,7 +65,7 @@ Verificatie op basis van de omgeving biedt ondersteuning voor alle verificatieme
 * Clientreferenties
 * X509-certificaten
 * Gebruikersnaam en wachtwoord
-* Managed Service Identity (MSI)
+* Beheerde identiteiten voor Azure-resources
 
 Als een verificatietype niet-ingestelde waarden heeft of wordt geweigerd, probeert de SDK automatisch het volgende verificatietype. Wanneer er geen typen meer kunnen worden geprobeerd, retourneert de SDK een fout.
 
@@ -84,7 +84,7 @@ In de volgende tabel worden de omgevingsvariabelen vermeld die moeten worden ing
 | | `AZURE_CLIENT_ID` | De client-id voor de toepassing. |
 | | `AZURE_USERNAME` | De gebruikersnaam waarmee moet worden aangemeld. |
 | | `AZURE_PASSWORD` | Het wachtwoord waarmee moet worden aangemeld. |
-| __MSI__ | | Er zijn geen referenties nodig voor MSI-verificatie. De toepassing moet worden uitgevoerd op een Azure-resource die is geconfigureerd voor het gebruik van MSI. Zie [Managed Service Identity (MSI) voor Azure-resources] voor meer informatie. |
+| __Beheerde identiteit__ | | Er zijn geen referenties nodig voor verificatie van beheerde identiteiten. De toepassing moet worden uitgevoerd op een Azure-resource die is geconfigureerd voor het gebruik van beheerde identiteiten. Zie [Beheerde identiteiten voor Azure-resources] voor meer informatie. |
 
 Als u verbinding wilt maken met een andere cloud of met een ander beheereindpunt dan de standaard openbare Azure-cloud, stelt u de volgende omgevingsvariabelen in. De meestvoorkomende redenen zijn dat u Azure Stack, een cloud in een andere geografische regio of het klassieke implementatiemodel gebruikt.
 
@@ -168,7 +168,7 @@ De volgende tabel bevat de typen in de SDK die voldoen aan de `AuthorizerConfig`
 |---------------------|-----------------------|
 | Verificatie op basis van certificaat | [ClientCertificateConfig] |
 | Clientreferenties | [ClientCredentialsConfig] |
-| Managed Service Identity (MSI) | [MSIConfig] |
+| Beheerde identiteiten voor Azure-resources | [MSIConfig] |
 | Gebruikersnaam en wachtwoord | [UsernamePasswordConfig] |
 
 [ClientCertificateConfig]: https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#ClientCertificateConfig

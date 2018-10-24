@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.technology: azure-sdk-go
 ms.devlang: go
 ms.component: authentication
-ms.openlocfilehash: f5c2c56e43828f0bedad0b5781dc71991ce1fd3e
-ms.sourcegitcommit: 172f81dd6e4c6a275dc8031815aa87cdb488cbf0
+ms.openlocfilehash: c2c3dccfa8da5cfe57fee0b90139002068982560
+ms.sourcegitcommit: 887b15afcdeaf926a5f3d21b64e4045167fd062c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47231672"
+ms.lasthandoff: 10/21/2018
+ms.locfileid: "49481979"
 ---
 # <a name="authentication-methods-in-the-azure-sdk-for-go"></a>Verificatiemethoden in de Azure SDK voor Go
 
@@ -70,20 +70,21 @@ Als een verificatietype niet-ingestelde waarden heeft of wordt geweigerd, probee
 
 In de volgende tabel worden de omgevingsvariabelen vermeld die moeten worden ingesteld voor elk verificatietype dat wordt ondersteund door de verificatie op basis van de omgeving.
 
-| Verificatietype | Omgevingsvariabele | Beschrijving |
-| ------------------- | -------------------- | ----------- |
-| __Clientreferenties__ | `AZURE_TENANT_ID` | De id voor de Active Directory-tenant waar de service-principal bij hoort. |
-| | `AZURE_CLIENT_ID` | De naam of id van de service-principal. |
-| | `AZURE_CLIENT_SECRET` | Het geheim dat is gekoppeld aan de service-principal. |
-| __Certificaat__ | `AZURE_TENANT_ID` | De id voor de Active Directory-tenant waarvoor het certificaat is geregistreerd. |
-| | `AZURE_CLIENT_ID` | De client-id van de toepassing die is gekoppeld aan het certificaat. |
-| | `AZURE_CERTIFICATE_PATH` | Het pad naar het clientcertificaatbestand. |
-| | `AZURE_CERTIFICATE_PASSWORD` | Het wachtwoord voor het clientcertificaat. |
-| __Gebruikersnaam en wachtwoord__ | `AZURE_TENANT_ID` | De id voor de Active Directory-tenant waar de gebruiker bij hoort. |
-| | `AZURE_CLIENT_ID` | De client-id voor de toepassing. |
-| | `AZURE_USERNAME` | De gebruikersnaam waarmee moet worden aangemeld. |
-| | `AZURE_PASSWORD` | Het wachtwoord waarmee moet worden aangemeld. |
-| __Beheerde identiteit__ | | Er zijn geen referenties nodig voor verificatie van beheerde identiteiten. De toepassing moet worden uitgevoerd op een Azure-resource die is geconfigureerd voor het gebruik van beheerde identiteiten. Zie [Beheerde identiteiten voor Azure-resources] voor meer informatie. |
+
+|  Verificatietype   |     Omgevingsvariabele     |                                                                                                     Beschrijving                                                                                                      |
+|------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Clientreferenties** |      `AZURE_TENANT_ID`       |                                                                    De id voor de Active Directory-tenant waar de service-principal bij hoort.                                                                     |
+|                        |      `AZURE_CLIENT_ID`       |                                                                                       De naam of id van de service-principal.                                                                                       |
+|                        |    `AZURE_CLIENT_SECRET`     |                                                                                  Het geheim dat is gekoppeld aan de service-principal.                                                                                   |
+|    **Certificaat**     |      `AZURE_TENANT_ID`       |                                                                   De id voor de Active Directory-tenant waarvoor het certificaat is geregistreerd.                                                                    |
+|                        |      `AZURE_CLIENT_ID`       |                                                                              De client-id van de toepassing die is gekoppeld aan het certificaat.                                                                              |
+|                        |   `AZURE_CERTIFICATE_PATH`   |                                                                                       Het pad naar het clientcertificaatbestand.                                                                                       |
+|                        | `AZURE_CERTIFICATE_PASSWORD` |                                                                                       Het wachtwoord voor het clientcertificaat.                                                                                       |
+| **Gebruikersnaam en wachtwoord**  |      `AZURE_TENANT_ID`       |                                                                           De id voor de Active Directory-tenant waar de gebruiker bij hoort.                                                                           |
+|                        |      `AZURE_CLIENT_ID`       |                                                                                              De client-id voor de toepassing.                                                                                              |
+|                        |       `AZURE_USERNAME`       |                                                                                            De gebruikersnaam waarmee moet worden aangemeld.                                                                                             |
+|                        |       `AZURE_PASSWORD`       |                                                                                            Het wachtwoord waarmee moet worden aangemeld.                                                                                             |
+|  **Beheerde identiteit**  |                              | Er zijn geen referenties nodig voor verificatie van beheerde identiteiten. De toepassing moet worden uitgevoerd op een Azure-resource die is geconfigureerd voor het gebruik van beheerde identiteiten. Zie [Beheerde identiteiten voor Azure-resources] voor meer informatie. |
 
 Als u verbinding wilt maken met een andere cloud of met een ander beheereindpunt dan de standaard openbare Azure-cloud, stelt u de volgende omgevingsvariabelen in. De meestvoorkomende redenen zijn dat u Azure Stack, een cloud in een andere geografische regio of het klassieke implementatiemodel gebruikt.
 

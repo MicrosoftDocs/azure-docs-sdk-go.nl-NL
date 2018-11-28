@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-sdk-go
 ms.devlang: go
-ms.openlocfilehash: 013a771345d96f0fa8dbece3218a01650744f70b
-ms.sourcegitcommit: 8b9e10b960150dc08f046ab840d6a5627410db29
-ms.translationtype: HT
+ms.openlocfilehash: 7990ec8bde5622078aa822fc7e66ba5c4384d682
+ms.sourcegitcommit: 3d26b464f196f8675c636ae792637d4c882fb92c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44059183"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52337140"
 ---
 # <a name="install-the-azure-sdk-for-go"></a>De Azure SDK voor Go installeren
 
@@ -90,7 +90,7 @@ Gebruik een snelstartgids om aan de slag te gaan met de Azure SDK voor Go.
 
 Als u onmiddellijk aan de slag wilt gaan met andere services in de Go SDK, kunt u een aantal van de beschikbare voorbeeldcodes bekijken.
 
-* [Verifiëren met Azure-services](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/iam)
+* [Verifiëren met Azure-services](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/internal/iam)
 * [Nieuwe virtuele machines met SSH-verificatie implementeren](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/compute)
 * [Een containerinstallatiekopie implementeren in Azure Container Instances](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/containerinstance)
 * [Een cluster in Azure Kubernetes Service maken](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/containerservice)

@@ -11,7 +11,7 @@ ms.technology: azure-sdk-go
 ms.devlang: go
 ms.openlocfilehash: 7990ec8bde5622078aa822fc7e66ba5c4384d682
 ms.sourcegitcommit: 3d26b464f196f8675c636ae792637d4c882fb92c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/27/2018
 ms.locfileid: "52337140"
